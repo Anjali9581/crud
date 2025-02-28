@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <br><br><br> <br><br>
+   <center>
+    <form action="" method="post" style="height: 50vh; border-radius: 20px; background-color:  #888; width: 50%;">
+        {% csrf_token %}
+        <br>
+        <h1>Edit Page : Edit the Details</h1>
+        
+        <br>
+        <label for="">Name</label>
+        <input type="text" name="name" id="name" value="{{ details.name }}">
+        <br><br>
+        <label for="">Phone</label>
+        <input type="tel" name="phone" id="phone" value="{{ details.phone }}">
+        <br><br>
+        <label for="">Email</label>
+        <input type="email" name="email" id="email" value="{{ details.email }}">
+        <br><br>
+        <label for="">Gender</label>
+        {% if details.gender %}
+        <input type="radio" name="gender" id="female" value="True" checked> Female
+        <input type="radio" name="gender" id="male" value="False"> Male
+        {% else %}
+        <input type="radio" name="gender" id="female" value="True"> Female
+        <input type="radio" name="gender" id="male" value="False" checked> Male
+        {% endif %}
+        <br><br>
+        <button type="submit"style="color: #fff; border: none; border-radius: 20px; padding:10px 30px; background-color:green" >Save Changes</button>
+    </form>
+   </center>
+</body>
+</html>
